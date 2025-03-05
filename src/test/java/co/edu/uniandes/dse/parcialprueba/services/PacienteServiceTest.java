@@ -72,7 +72,7 @@ public class PacienteServiceTest {
 	 * @throws IllegalOperationException 
 	 */
 	@Test
-	void testCreatePaciente(){
+	void testCreatePaciente() throws IllegalOperationException, EntityNotFoundException {
 		PacienteEntity newEntity = factory.manufacturePojo(PacienteEntity.class);
 	
 		PacienteEntity result = pacienteService.createPaciente(newEntity);
@@ -84,6 +84,8 @@ public class PacienteServiceTest {
 		assertEquals(newEntity.getCorreo(), entity.getCorreo());
 		assertEquals(newEntity.getEsAcudiente(), entity.getAcudiente());
 		assertEquals(newEntity.getTelefono(), entity.getTelefono());
+        assertEquals(newEntity.getAcudiente(), entity.getAcudiente());
+        assertEquals(newEntity.getHistoriasClinicas(), entity.getHistoriasClinicas());
 	}
 	
 
